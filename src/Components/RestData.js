@@ -24,7 +24,7 @@ function RestData() {
         <div>
             <section>
                 {rest.map(restaurant => (
-                    <RestCard key={restaurant.name} restaurant={restaurant} />
+                    <RestCard key={restaurant.id} restaurant={restaurant} />
                 ))}
             </section>
         </div>
