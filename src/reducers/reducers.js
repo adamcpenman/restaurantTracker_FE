@@ -1,7 +1,7 @@
 import {
-  NEW_TASK_START,
-  NEW_TASK_SUCCESS,
-  NEW_TASK_ERROR,
+  NEW_REST_START,
+  NEW_REST_SUCCESS,
+  NEW_REST_ERROR,
 } from "../actions/actions";
 
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
 
 export function exerciseReducer(state = initialState, action) {
   switch (action.type) {
-    case NEW_TASK_START:
+    case NEW_REST_START:
       return {
         ...state,
         isFetching: true,
@@ -23,7 +23,7 @@ export function exerciseReducer(state = initialState, action) {
         isCreatingEvent: true
       };
 
-    case NEW_TASK_SUCCESS:
+    case NEW_REST_SUCCESS:
       return {
         ...state,
         isFetching: false,
@@ -31,14 +31,14 @@ export function exerciseReducer(state = initialState, action) {
         isCreatingEvent: false
       };
 
-    case NEW_TASK_ERROR:
+    case NEW_REST_ERROR:
       return {
         ...state,
         isFetching: false,
         hasCreatedEvent: false,
         isCreatingEvent: false
       };
-      
+
     default:
       return state;
   }
