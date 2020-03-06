@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
 import RestCard from "./RestCard"
+import {Link} from "react-router-dom"
 
 //https://restaurant-tracker-be.herokuapp.com/
 
@@ -10,7 +11,7 @@ function RestData() {
     useEffect(() => {
         const getRestData = () => {
             axios  
-                .get("http://localhost:4000/restaurants")
+                .get("https://restaurant-tracker-be.herokuapp.com/restaurants")
                 .then(response => {
                     setRest(response.data);
                     console.log(response.data)
@@ -25,10 +26,18 @@ function RestData() {
     return (
         <div>
             <section>
+                {}
                 {rest.map(restaurant => (
                     <RestCard key={restaurant.id} restaurant={restaurant} />
                 ))}
+                {/* {rest.map(r => ( <div
+                key={r.id}>
+                    <h1>{r.name}</h1>
+                    <h1>{r.date}</h1>
+                </div>)
+                )} */}
             </section>
+            <Link to="add-task"> Add </Link>
         </div>
     )
 }
