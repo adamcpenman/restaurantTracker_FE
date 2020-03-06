@@ -16,9 +16,10 @@ export const addRest = formValues => dispatch => {
   api()
     .post("/restaurants", makeRest)
     .then(response => {
-      history.push("/");
+      
       console.log(response);
       dispatch({ type: NEW_REST_SUCCESS });
+      history.push("/");
 
     })
     .catch(error => {
@@ -58,6 +59,8 @@ export const deleteEvent = (id, exerciseState, exercise, dispatch) => {
     //   );
     // const workout = [exercise.filter(workout => workout.id === id)];
       dispatch({ type: DELETE_SUCCESS });
+    //return state.filter(({ id }) => id !== action.payload);
+
     })
     .catch(err => {
       console.log(err);
