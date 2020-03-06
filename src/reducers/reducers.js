@@ -12,7 +12,6 @@ const initialState = {
   isFetching: false,
   isCreatingEvent: false,
   hasCreatedEvent: false,
-  exerciseList: [],
   isUpdating: false,
   isDeleted: false
 };
@@ -43,8 +42,13 @@ export function exerciseReducer(state = initialState, action) {
         isCreatingEvent: false
       };
 
-     case DELETE_SUCCESS:
-            return state.filter(({ id }) => id !== action.payload);
+     case DELETE_SUCCESS: 
+     return {
+       ...state,
+       isDeleted: true,
+       isFetching: true, 
+     }
+            //return state.filter(({ id }) => id !== action.payload);
 
 
     default:

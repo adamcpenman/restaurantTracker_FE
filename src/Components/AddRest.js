@@ -59,7 +59,7 @@ function AddRest(props){
                 {/* <button type="submit">Add Restaurant</button> */}
                 <button
             type="submit"
-            onClick={() => props.addRest(newRest, props.history)}
+            onClick={() => props.addRest}
           >
             Add Exercise
           </button>
