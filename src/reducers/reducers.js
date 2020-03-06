@@ -2,6 +2,10 @@ import {
   NEW_REST_START,
   NEW_REST_SUCCESS,
   NEW_REST_ERROR,
+  REMOVE_ITEM,
+  DELETE_START,
+  DELETE_SUCCESS,
+  DELETE
 } from "../actions/actions";
 
 const initialState = {
@@ -38,6 +42,10 @@ export function exerciseReducer(state = initialState, action) {
         hasCreatedEvent: false,
         isCreatingEvent: false
       };
+
+     case DELETE_SUCCESS:
+            return state.filter(({ id }) => id !== action.payload);
+
 
     default:
       return state;

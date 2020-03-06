@@ -3,7 +3,7 @@ import axios from "axios"
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { addTask } from "../actions/actions";
+import { addRest } from "../actions/actions";
 
 
 function AddRest(props){
@@ -14,7 +14,7 @@ function AddRest(props){
 
       const handleSubmit = e => {
     e.preventDefault();
-    props.addTask(newRest);
+    props.addRest(newRest);
   };
 
     const handleChange = e => {
@@ -59,7 +59,7 @@ function AddRest(props){
                 {/* <button type="submit">Add Restaurant</button> */}
                 <button
             type="submit"
-            onClick={() => props.addTask(newRest, props.history)}
+            onClick={() => props.addRest(newRest, props.history)}
           >
             Add Exercise
           </button>
@@ -75,6 +75,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTask }
+  { addRest }
 )(withRouter(AddRest));
 // export default AddRest
