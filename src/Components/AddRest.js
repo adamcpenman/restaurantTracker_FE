@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import axios from "axios"
+// import axios from "axios"
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -23,21 +23,6 @@ function AddRest(props){
             [e.target.name]: e.target.value
         })
     }
-
-    // const handleSubmit = e => {
-    //     // e.preventDefault();
-    //      axios
-    //         .post("http://localhost:4000/restaurants/",
-    //         newRest)
-    //         .then(res => setNewRest({
-                
-    //             name: "",
-    //             date: ""
-    //         }))
-    //         .catch(error => {
-    //             console.log(error, "Could not create new entry")
-    //         })
-    //    }
     
     return (
         <div>
@@ -61,7 +46,7 @@ function AddRest(props){
             type="submit"
             onClick={() => props.addRest}
           >
-            Add Exercise
+            Add Restaurant
           </button>
             </form>
         </div>

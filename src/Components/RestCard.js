@@ -1,35 +1,37 @@
-import React, { useState, useContext } from 'react';
-
+import React, { useState } from 'react';
+// import axios from "axios";
+import {withRouter} from "react-router-dom";
 import { connect } from "react-redux";
-import { api } from "../utils/api";
+// import { api } from "../utils/api";
 import { deleteEvent } from "../actions/actions";
-import { ExerciseContext } from "../context";
-
+// import { ExerciseContext } from "../context";
+// import { ContactContext } from "../reducers/reducers";
 function RestCard({restaurant}) {
- //const { exerciseState, dispatch } = useContext(ExerciseContext);
-  const [exercise, setExercise] = useState([]);
-    //const id = Number.parseInt(props.match.params.id);
+ //const [state, dispatch] = useContext(ContactContext);
+ //const { state, dispatch } = useContext(ExerciseContext);
+  const [blog, setBlog] = useState([]);
+
+//  const handleDelete = async id => {
+//     try {
+//       const response = await axios
+//       .delete(`https://restaurant-tracker-be.herokuapp.com/restaurants/${id}`);
+//       dispatch({
+//         type: "DELETE_SUCCESS",
+//         payload: response.data
+//       });
+//     } catch (error) {
+//       (console.log(error))
+//     }
+//   }
 
     const handleDelete = (event, id, props) => {
-    //event.preventDefault();
-    // const workout = [exercise.find(workout => workout.id === id)];
 
-    // if (window.confirm("Are you sure?!")) {
-    //   setExercise(exercise.filter(workout => workout.id !== id));
+    // const workout = [blog.find(workout => workout.id === id)];
 
-      deleteEvent(id, exercise)
-      setExercise(exercise.filter(workout => workout.id !== id));
-
-    //   api()
-    //     .delete(`/restaurants/${id}`)
-    //     .then(result => {
-    //       console.log("workout was TERMINATED");
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //       setExercise([...exercise, workout]);
-    //     });
-    // }
+    if (window.confirm("Are you sure?!")) {
+       deleteEvent(id, blog)
+      setBlog(blog.filter(entry => entry.id !== id));
+    }
   };
 
     return (
@@ -52,4 +54,23 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { deleteEvent }
-)(RestCard);
+)(withRouter(RestCard));
+// const RestCard = props => {
+//   return (
+//     <div className="campaign-card">
+//      <h3>name: {props.restaurant.name}</h3>
+//         <h3>date: {props.restaurant.date}</h3>
+//         {/* <Link
+//           className="fas fa-edit fa-xlg btn edit-button"
+//           to={`/org-restaurants/${props.restaurant.restaurants_id}`}
+//         ></Link> */}
+//         <button
+//           onClick={props.handleDelete}
+//           value={props.restaurant.id}
+//           className="fas fa-trash fa-xlg btn delete-button"
+//         ></button>
+//       </div>
+//   );
+// };
+
+// export default RestCard;

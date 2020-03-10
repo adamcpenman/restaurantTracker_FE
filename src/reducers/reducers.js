@@ -2,18 +2,24 @@ import {
   NEW_REST_START,
   NEW_REST_SUCCESS,
   NEW_REST_ERROR,
-  REMOVE_ITEM,
-  DELETE_START,
   DELETE_SUCCESS,
-  DELETE
 } from "../actions/actions";
+
+import React, {
+  useReducer,
+  createContext
+} from 'react';
+
+export const ContactContext = createContext();
+
 
 const initialState = {
   isFetching: false,
   isCreatingEvent: false,
   hasCreatedEvent: false,
   isUpdating: false,
-  isDeleted: false
+  isDeleted: false,
+  restaurant: {}
 };
 
 export function exerciseReducer(state = initialState, action) {
@@ -42,16 +48,26 @@ export function exerciseReducer(state = initialState, action) {
         isCreatingEvent: false
       };
 
+    //cant get DELETE REDUX to work
      case DELETE_SUCCESS: 
+      const {id}  = action.payload;
      return {
        ...state,
-       isDeleted: true,
-       isFetching: true, 
+       restaurant: state.restaurant.filter(item => item.id !== id),
+       isDeleted: true
      }
-            //return state.filter(({ id }) => id !== action.payload);
-
 
     default:
       return state;
   }
+}
+
+export const ContactContextProvider = (props) => {
+  const [state, dispatch] = useReducer(exerciseReducer, initialState);
+
+  return(
+    <ContactContext.Provider value={[state, dispatch]}>
+      {props.children}
+    </ContactContext.Provider>
+  )
 }
