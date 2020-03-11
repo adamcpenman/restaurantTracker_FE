@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, NavLink, withRouter } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 
 
 import RestData from "./Components/RestData"
@@ -21,3 +21,4 @@ function App() {
 }
 
 export default withRouter(App);
+

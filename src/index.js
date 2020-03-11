@@ -12,6 +12,8 @@ import { Provider } from "react-redux";
 
 import { exerciseReducer } from "./reducers/reducers"
 
+import { ContactContextProvider } from './reducers/reducers';
+
 
 export const history = createBrowserHistory();
 
@@ -19,11 +21,12 @@ const store = createStore(exerciseReducer, applyMiddleware(thunk, logger));
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
+  <ContactContextProvider>
   <Router history={history}>
     <Provider store={store}>
       <App />
     </Provider>
-  </Router>,
+  </Router>
+  </ContactContextProvider>,
   rootElement
 );
-

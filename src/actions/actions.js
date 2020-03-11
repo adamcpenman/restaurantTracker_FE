@@ -45,21 +45,17 @@ export const DELETE_SUCCESS = "DELETE_SUCCESS"
 //     });
 // };
 
-export const deleteEvent = (id, exerciseState, exercise, dispatch) => {
+export const deleteEvent = (id, dispatch) => {
   axios
-    .delete(`https://restaurant-tracker-be.herokuapp.com/restaurants/${id}`, exercise)
+    .delete(`https://restaurant-tracker-be.herokuapp.com/restaurants/${id}`)
     .then(res => {
       console.log(`axios DELETE response:`);
       console.log(res);
       window.location.reload()
 
-      // the response is just a success message; we need to adjust the state ourselves
-    //   const newExercise = exerciseState.exerciseInfo[0].filter(
-    //     item => item.id !== id
-    //   );
-    // const workout = [exercise.filter(workout => workout.id === id)];
+      //not working yet
       dispatch({ type: DELETE_SUCCESS });
-    //return state.filter(({ id }) => id !== action.payload);
+      //return state.filter(({ id }) => id !== action.payload);
 
     })
     .catch(err => {
@@ -67,25 +63,6 @@ export const deleteEvent = (id, exerciseState, exercise, dispatch) => {
     });
 };
 
-// export const deleteEvent = restaurant => (id, dispatch) => async dispatch => {
-//   try {
-//  await axios
-//     .delete(`https://restaurant-tracker-be.herokuapp.com/restaurants/${id}`, restaurant)
-//     .then(res => {
-//       console.log(`axios DELETE response:`);
-//       console.log(res);
-//       dispatch({ type: DELETE_SUCCESS });
-//       window.location.reload()
-    
-//       // the response is just a success message; we need to adjust the state ourselves
-//     //   const newExercise = exerciseState.exerciseInfo[0].filter(
-//     //     item => item.id !== id
-//     //   );
-//     // const workout = [exercise.filter(workout => workout.id === id)];
-      
-//     }) 
-//     } catch (err) {
-//       console.log(err);
-//     };
-//   }
+
+
 
