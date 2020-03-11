@@ -55,22 +55,3 @@ export default connect(
   mapStateToProps,
   { deleteEvent }
 )(withRouter(RestCard));
-// const RestCard = props => {
-//   return (
-//     <div className="campaign-card">
-//      <h3>name: {props.restaurant.name}</h3>
-//         <h3>date: {props.restaurant.date}</h3>
-//         {/* <Link
-//           className="fas fa-edit fa-xlg btn edit-button"
-//           to={`/org-restaurants/${props.restaurant.restaurants_id}`}
-//         ></Link> */}
-//         <button
-//           onClick={props.handleDelete}
-//           value={props.restaurant.id}
-//           className="fas fa-trash fa-xlg btn delete-button"
-//         ></button>
-//       </div>
-//   );
-// };
-
-// export default RestCard;

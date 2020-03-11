@@ -56,6 +56,15 @@ export function exerciseReducer(state = initialState, action) {
        restaurant: state.restaurant.filter(item => item.id !== id),
        isDeleted: true
      }
+         case "UPDATE_CONTACT": {
+      const contact = action.payload;
+      return {
+        ...state,
+        restaurants: state.restaurants.map(item =>
+          item.id === contact.id ? contact : item
+        )
+      };
+    }
 
     default:
       return state;

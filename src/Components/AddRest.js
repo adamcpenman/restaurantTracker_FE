@@ -2,7 +2,6 @@ import React, { useState } from "react"
 // import axios from "axios"
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
 import { addRest } from "../actions/actions";
 
 
